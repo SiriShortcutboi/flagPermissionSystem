@@ -22,7 +22,7 @@ class Program
     
 
     [Flags]
-    enum Permissions{
+    public enum Permissions{
         //when we use the singular or| operator it combines/add the 2 powers we have for our new Hero/employee
         None = 0,
         Read = 1,
