@@ -48,7 +48,6 @@ class Program
             Console.WriteLine("4. Exit");
 
             int action = int.Parse(Console.ReadLine());
-                        //need to make this an if statement to run a choice isntead of all 3
             // 1. RunAddPermissionMethod
             AddPermissionMethod();
             // 2. Display permission
@@ -94,7 +93,8 @@ class Program
     }
     public static void DisplayPermissionMethod()
     {
-        System.Console.WriteLine(userPermissions2);
+        System.Console.WriteLine(userPermissions); //used to be userPermissions2 which 
+                                                    //caused an error
     }
     public static void DisplayPermissionTextMethod()
     {
@@ -121,27 +121,6 @@ class Program
             case Permissions.ViewReports:
                 Console.WriteLine("This user is a super-user, can even view reports");
                 break;
-
-            //NOTES TO IMPLEMENT: dISPLAY WORKS GOOD, checked off, copy things off that
-                // for feature building 
-                //1 Need to make sure Users can type the String to select the permission they want
-                //2 Need to add decision logic to display those different menu items
-                    //lines 1 and 2 right there important, 2 might have to be implemented first
-                    //Mr Jensen said you can use integers if you want, sounds harder though, 
-                    //Our permissions uses int and string, its not that deep
-                /*
-                //NEED TO CHANGE THE HARDCODED 2 BACK TO USER INPUT FOR ANY PERMISSION SYSTEM SELECTION
-                ==== Permission System ====
-                    1. Add Permission
-                    2. Show Current Permissions
-                    3. Perform Action
-                    4. Exit
-                    2 """entered 2, its hardcoded at about line 96  System.Console.WriteLine(userPermissions2);"""
-                    Read
-                    User has Read access 
-                                */
-            //these might be the same but i swear they are on line 102 and line 71, look at the commit.
-            //need to change the hardcoding on line 71
         }
 
     }
