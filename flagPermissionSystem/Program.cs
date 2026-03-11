@@ -1,7 +1,9 @@
 ﻿using System;
 
 class Program
-{
+{// use the "getting somewhere commit" for a clean compile of permission system menu working, its flawed but it runs.
+    // add new menu head through if statement has kinda caused issues. need to figure out why they all run the same menu
+    // line above in simple words: Changed all 3 methods to if number run just one.
     public static int action;
     public static string userInput = "bruh";
     public static Permissions userPermissions;     
@@ -48,13 +50,26 @@ class Program
             Console.WriteLine("4. Exit");
 
             action = int.Parse(Console.ReadLine());
-                        //need to make this an if statement to run a choice isntead of all 3
+                        //need to make this an if statement to run a choice instead of all 3
             // 1. RunAddPermissionMethod
-            AddPermissionMethod();
+            if (action == 1)
+            {
+                AddPermissionMethod();
+            }
             // 2. Display permission
-            DisplayPermissionMethod();
+            if (action == 2)
+            {
+                DisplayPermissionMethod();
+            }
             // 3. display text from permission
-             DisplayPermissionTextMethod();
+            if (action == 3)
+            {
+                DisplayPermissionTextMethod();
+            }
+            if (action == 4)
+            {
+                mainMenuBool = false;
+            }
             // 4. break; - set mainMenuBool to false
             // permissionLevel = 
 
