@@ -2,7 +2,7 @@
 
 class Program
 {
-
+    public static int action;
     public static string userInput = "bruh";
     public static Permissions userPermissions;     
     public static bool mainMenuBool = true;
@@ -26,12 +26,12 @@ class Program
     [Flags]
     public enum Permissions{
         //when we use the singular or| operator it combines/add the 2 powers we have for our new Hero/employee
-        None = 0,
-        Read = 1,
-        Write = 2,
-        Delete = 4,
-        Execute = 8,
-        ViewReports = 16
+        None = 0, //1st option available is 0
+        Read = 1, //2nd option available
+        Write = 2, //3rd option available
+        Delete = 4, //4th
+        Execute = 8, //5th
+        ViewReports = 16 //6th option available
     }
 
                 //Permission Menu
@@ -47,7 +47,7 @@ class Program
             Console.WriteLine("3. Perform Action");
             Console.WriteLine("4. Exit");
 
-            int action = int.Parse(Console.ReadLine());
+            action = int.Parse(Console.ReadLine());
                         //need to make this an if statement to run a choice isntead of all 3
             // 1. RunAddPermissionMethod
             AddPermissionMethod();
@@ -67,13 +67,12 @@ class Program
     }
     public static void AddPermissionMethod()
     {
-        //which permission to add
-        Permissions response = Permissions.Read;
+        Permissions response = (Permissions)action;
         switch(response)
         {
             case Permissions.None:                    
                 userPermissions |= Permissions.None;
-                break;                
+                break;       
             case Permissions.Read:                    
                 userPermissions |= Permissions.Read;
                 break;                
@@ -100,7 +99,7 @@ class Program
     public static void DisplayPermissionTextMethod()
     {
                 //which permission text to see
-        Permissions response = Permissions.Read;
+        Permissions response = (Permissions)action;
         switch(response)
         {
 
