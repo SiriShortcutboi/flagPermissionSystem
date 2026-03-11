@@ -5,6 +5,7 @@ class Program
     // add new menu head through if statement has kinda caused issues. need to figure out why they all run the same menu
     // line above in simple words: Changed all 3 methods to if number run just one.
     public static int action;
+    public static int action2;
     public static string userInput = "bruh";
     public static Permissions userPermissions;     
     public static bool mainMenuBool = true;
@@ -50,26 +51,35 @@ class Program
             Console.WriteLine("4. Exit");
 
             action = int.Parse(Console.ReadLine());
-                        //need to make this an if statement to run a choice instead of all 3
+            //action2 = int.Parse(Console.ReadLine());
+                        //need to make this an if statement to run a choice isntead of all 3
+             switch(action)
+            {
+                case 1:                  
+                    AddPermissionMethod();
+                    break;      
+                case 2:                    
+                    DisplayPermissionMethod();
+                    break;
+                case 3:                  
+                    DisplayPermissionTextMethod();
+                    break;      
+                case 4:                    
+                    System.Environment.Exit(0);
+                    break;
+                default:
+                    ApplicationMenu();
+                    break;
+             } //closing menu bracket
+            
+
+
             // 1. RunAddPermissionMethod
-            if (action == 1)
-            {
-                AddPermissionMethod();
-            }
+            
             // 2. Display permission
-            if (action == 2)
-            {
-                DisplayPermissionMethod();
-            }
+           // DisplayPermissionMethod();
             // 3. display text from permission
-            if (action == 3)
-            {
-                DisplayPermissionTextMethod();
-            }
-            if (action == 4)
-            {
-                mainMenuBool = false;
-            }
+          //   DisplayPermissionTextMethod();
             // 4. break; - set mainMenuBool to false
             // permissionLevel = 
 
@@ -82,26 +92,44 @@ class Program
     }
     public static void AddPermissionMethod()
     {
-        Permissions response = (Permissions)action;
-        switch(response)
+        Console.WriteLine("==== Permission Add ====");
+            Console.WriteLine("1. None");
+            Console.WriteLine("2. Read");
+            Console.WriteLine("3. Write");
+            Console.WriteLine("4. Delete");
+            Console.WriteLine("5. Execute");
+            Console.WriteLine("6. View Reports");
+            Console.WriteLine("7. Back");
+
+            action2 = int.Parse(Console.ReadLine());
+
+        switch(action2)
         {
-            case Permissions.None:                    
+            case 1:                    
                 userPermissions |= Permissions.None;
                 break;       
-            case Permissions.Read:                    
+            case 2:                    
                 userPermissions |= Permissions.Read;
                 break;                
-            case Permissions.Write:                    
+            case 3:                    
                 userPermissions |= Permissions.Write;
                 break;                
-            case Permissions.Delete:                    
-                userPermissions |= Permissions.Write;
+            case 4:                    
+                userPermissions |= Permissions.Delete;
                 break;                
-            case Permissions.Execute:                   
+            case 5:                   
                 userPermissions |= Permissions.Execute;
                 break;                
-            case Permissions.ViewReports:                    
+            case 6:                    
                 userPermissions |= Permissions.ViewReports;
+                break;
+            case 7:                    
+                ApplicationMenu();
+                break;
+            default:
+                Console.WriteLine("Not quite sure what you said " +
+                 "but it sounds like you want to add a permission");
+                AddPermissionMethod();
                 break;
         }
 
